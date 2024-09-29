@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "icon" href ="static/img/swirly.gif" type = "image/x-icon">
+    <title>Dizzy's Magnificent Word Bank</title>
+
+<!--https://stackforgeeks.com/blog/using-google-texttospeech-in-javascript-->
+<!-- maybe add a flashcard function! could be cool! -->
+
+  <script>
+
+   function generate(){
+
+    const myList = document.querySelector('table');
+
+    fetch('coolwords.json')
+      .then(function(response) {
+        globalThis.json = response.json();
+        return json;
+      })
+      init();
+   }
+
+   function init(){
+    for(var i = 0; i < json.all_entries.length; i++) {
+          var listItem = document.createElement('tr');
+          listItem.innerHTML += '<td class="word" onclick="say(\''+ json.all_entries[i].word +'\');"><a class="title">' + json.all_entries[i].word + ' </a></td>';
+          listItem.innerHTML +='<td class="definition">' + json.all_entries[i].definition + '</td>';
+          myList.appendChild(listItem);
+        }
+   }
+
+   function say(text) {
+   var msg = new SpeechSynthesisUtterance(text);
+   speechSynthesis.speak(msg);
+    }
+
+    </script>
+
+    <style>
+
+@font-face{
+            font-family: MS Gothic;
+            src: url("static/MSGOTHIC.TTF")
+        }
+
+body{
+  background-color: black;
+}
+
+    th, td {
+    border: 2px solid rgb(157, 157, 157);
+    padding: 10px;
+  }
+
+  .definition{
+    background-color:rgb(50, 50, 50);
+    color:white;
+    font-family: MS Gothic;
+    font-size: 18px;
+  }
+
+  .word{
+    padding: 10px;
+    width:30%;
+
+  }
+
+    table{
+    width: 100%;
+    margin-bottom: 10px;
+    }
+
+   ul{
+    margin: 0px;
+    padding: 20px;
+   }
+
+
+  div.scroll{
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 797px;
+    height: 700px;
+    border: 2px solid rgb(157, 157, 157);
+  }
+
+    .title{
+     font-size: 25px;
+     color: white;
+     font-family: Typewriter;
+    }
+
+   @font-face{
+    font-family: Typewriter;
+    src: url("static/typewriter.ttf")
+   }
+
+  </style>
+
+</head>
+<body onload="generate()">
+<div class="header">
+    
+</div>
+
+<div class="scroll">
+<table>
+  <tr>
+  </tr>
+</table>
+</div>
+</body>

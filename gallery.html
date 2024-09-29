@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Art Gallery</title>
+
+    <style>
+        body{
+            grid-template-columns: 25% 75%;
+            display:grid;
+            margin:0 auto;
+            padding:0 px;
+            width:100vw;
+            height:100vh;
+            background-color:rgb(0, 0, 0);
+            overflow:hidden;
+        }
+
+        @font-face{
+            font-family: Typewriter;
+            src: url('static/typewriter.ttf');
+        }
+
+        @font-face{
+            font-family: MS Gothic;
+            src: url('static/MSGOTHIC.TTF');
+        }
+
+        #left{
+            background-color:rgb(50, 50, 50);
+            border-right:2px dotted white;
+        }
+
+        #right{
+            background-color:rgb(0, 0, 0);
+            margin: 0 auto;
+            padding:10px;
+        }
+
+        .thumb{
+            padding:2px;
+        }
+
+        .tab div {
+            display: none;
+            }
+
+        .tab div:target {
+        display: block;
+        }
+
+        img{
+            max-width:70vw;
+            max-height:98vh;
+        }
+
+        .descript{
+            color:white;
+            font-family: MS Gothic;
+            position:absolute;
+            bottom:5px;
+            right:5px;
+            width:200px;
+            background-color:black;
+        }
+
+        .flex-container{
+            padding:10px; display:flex; flex-wrap:wrap; justify-content: center; align-content: flex-start;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="left">
+        <div style="margin:20px;">
+        <a style="font-family:Typewriter; font-size: 30px; color:white;">Gallery</a></br>
+        <a style="font-family:MS Gothic; color:white;">Click to peruse.</a>
+    </div>
+        <div style="background-color: black; overflow-y:scroll; height:83vh; text-align:center;">
+
+        <div style="padding-top:20px;">
+        <a style="font-family:MS Gothic; color:white;">Full Pieces</a>
+        </div>
+
+        <div class="flex-container">
+        <a title="(4/14/2023) Back on that 1920s Golden Age Cocaine Spurred Fujo Shit" class="thumb" href="#1920sfujoshit" style="width:90px; height:90px;"><div style="width:90px; height:90px; background-image:url('https://f2.toyhou.se/file/f2-toyhou-se/thumbnails/63718295_8pL.png'); background-size:cover;"></div></a>
+        <a title="(4/14/2023) Biblical Yaoi" class="thumb" href="#biblicalyaoi" style="width:90px; height:90px;"><div style="width:90px; height:90px; background-image:url('https://f2.toyhou.se/file/f2-toyhou-se/thumbnails/63718319_AEo.png'); background-size:cover;"></div></a>
+        <a title="(9/4/2022) American Sunday" class="thumb" href="#fihas" style="width:90px; height:90px;"><div style="width:90px; height:90px; background-image:url(static/img/artwork/fihas.jpg); background-size:cover;"></div></a>
+        <a title="(7/23/2022) White Boy Summer Is Literally Going To Have No Survivors 2" class="thumb" href="#whiteboysummer2"><div style="width:90px; height:90px; background-image:url(static/img/artwork/whiteboysummerisliterallygoingtohavenosurvivors2.png); background-size:cover;"></div></a>
+        <a title="(5/31/2022) Bigfin Squid Girl Indulgence"  class="thumb" href="#bigfin" style="width:90px; height:90px;"><div style="width:90px; height:90px; background-image:url(static/img/artwork/bigfin.png); background-size:cover;"></div></a>
+        <a title="(4/22/2022) Girls Being Girls"  class="thumb" href="#girlsbeinggirls" style="width:90px; height:90px;"><div style="width:90px; height:90px; background-image:url(static/img/artwork/girlsbeinggirls.jpg); background-size:cover;"></div></a>
+        <a title="(4/22/2022) Lucien's No Good Very Bad Day"  class="thumb" href="#luciensnogoodverybadday" style="width:90px; height:90px;"><div style="width:90px; height:90px; background-image:url(static/img/artwork/luciensnogoodverybadday.jpeg); background-size:cover;"></div></a>
+        <a title="(4/22/2022) It's Mementing Absolute Mori"  class="thumb" href="#mementingabsolutemori" style="width:90px; height:90px;"><div style="width:90px; height:90px; background-image:url(static/img/artwork/mementingabsolutemori.jpeg); background-size:cover;"></div></a>
+        <a title="(3/21/2022) I've Never Played Pool In My Life But I Drew My Character Playing It Because I Thought It Would Be Cool"  class="thumb" href="#endplayingpool" style="width:90px; height:90px;"><div style="width:90px; height:90px; background-image:url(static/img/artwork/endplayingpool.jpeg); background-size:cover;"></div></a>
+        <a title="(3/16/2022) 15 Benadryl"  class="thumb" href="#15benadryl" style="width:90px; height:90px;"><div style="width:90px; height:90px; background-image:url(static/img/artwork/15benadryl.png); background-size:cover;"></div></a>
+        <a title="(1/28/2022) Top Ten Most Epic 11 Year Old Child Moments"  class="thumb" href="#elizabethlamb" style="width:90px; height:90px;"><div style="width:90px; height:90px; background-image:url(static/img/artwork/elizabethlamb.png); background-size:cover;"></div></a>
+        <a title="(12/19/2021) Dirty Business"  class="thumb" href="#yayalice" style="width:90px; height:90px;"><div style="width:90px; height:90px; background-image:url(static/img/artwork/yayalice.png); background-size:cover;"></div></a>
+        <a title="(10/31/2021) Weeb NEET"  class="thumb" href="#choco1" style="width:90px; height:90px;"  ><div style="width:90px; height:90px; background-image:url(static/img/artwork/choco1.png); background-size:cover;"></div></a>
+        <a title="(10/18/2021) Mercy"  class="thumb" href="#mercy" style="width:90px; height:90px;"  ><div style="width:90px; height:90px; background-image:url(static/img/artwork/mercy.jpeg); background-size:cover;"></div></a>
+        <a title="(9/27/2021) White Boy Summer Is Literally Going To Have No Survivors"  class="thumb" href="#whiteboysummerisliterallygoingtohavenosurvivors" style="width:90px; height:90px;"  ><div style="width:90px; height:90px; background-image:url(static/img/artwork/whiteboysummerisliterallygoingtohavenosurvivors.jpeg); background-size:cover;"></div></a>
+        <a title="(8/15/2021) No Facebook No Instagram No Twitch.tv No Only Fans If You Want To See Her That Bad Check The Trailcam Footage In Your Local woods"  class="thumb" href="#kannatrailcamfootage" style="width:90px; height:90px;"  ><div style="width:90px; height:90px; background-image:url(static/img/artwork/kannatrailcamfootage.jpeg); background-size:cover;"></div></a>
+        <a title="(4/17/2021) Anime Fox Maid Purgatory"  class="thumb" href="#kyaaa" style="width:90px; height:90px;" ><div style="width:90px; height:90px; background-image:url(static/img/artwork/kyaaa.png); background-size:cover;"></div></a>
+        </div>
+
+        <div style="padding-top:20px;">
+            <a style="font-family:MS Gothic; color:white;">Simple Pieces / Sketches</a>
+            </div>
+        <div class="flex-container">
+            <a title="(2/24/2023) Early 30s Burned Out Chainsmoker Shoegaze Catboy"  class="thumb" href="#gabeitchawesome" style="width:90px; height:90px;"><div style="width:90px; height:90px; background-image:url('https://f2.toyhou.se/file/f2-toyhou-se/thumbnails/64542866_lj3.png?1683105072'); background-size:cover;"></div></a>
+            <a title="(2/25/2022) CROSS LEGS GAY GAY GAYTHESE MEN GOT FEMININE HIPS SOMEBODY STOP THEM!!"  class="thumb" href="#frendrealness" style="width:90px; height:90px;"><div style="width:90px; height:90px; background-image:url(static/img/artwork/frendrealness.jpeg); background-size:cover;"></div></a>
+            <a title="(2/17/2022) Girls Being Girls v0"  class="thumb" href="#anny" style="width:90px; height:90px;"><div style="width:90px; height:90px; background-image:url(static/img/artwork/anny.jpeg); background-size:cover;"></div></a>
+            <a title="(10/31/2021) Who Will YOU Pray to?"  class="thumb" href="#choco2" style="width:90px; height:90px;"  ><div style="width:90px; height:90px; background-image:url(static/img/artwork/choco2.jpeg); background-size:cover;"></div></a>
+        </div>
+
+        <div style="padding-top:20px;">
+            <a style="font-family:MS Gothic; color:white;">Crafty Stuff</a>
+            </div>
+        <div class="flex-container">
+            <a title="(2/11/2022) O MEIN GOTT! THIS CAVE IS FULL OF BLUNTENSMOKEN"  class="thumb" href="#bluntensmoken" style="width:90px; height:90px;"><div style="width:90px; height:90px; background-image:url(static/img/artwork/bluntensmoken.jpeg); background-size:cover;"></div></a>
+            <a title="(1/8/2023) This fucking thing?"  class="thumb" href="#thisfuckingthing" style="width:90px; height:90px;"><div style="width:90px; height:90px; background-image:url(static/img/artwork/thisfuckingthing.png); background-size:cover;"></div></a>
+        </div>
+    </div>
+
+    <div style="padding:10px;">
+    <a href="creations.html#all" style="font-family:MS Gothic; color:white;">Back to creations</a>
+    </div>
+
+</div>
+    <div id="right">
+        <!-- <div>
+            <iframe class="iframe" src="demo_iframe.htm" name="iframe_a" style="resize: both; border:none; width:73vw; height:96vh; text-align:center; "></iframe>
+        </div > -->
+        <div class="tab">
+        <div class="display" id="1920sfujoshit">
+            <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/63718295_8pLGsvb5WT1fW3U.png">
+            <a class="descript">(4/14/2023) Back on that 1920s Golden Age Cocaine Spurred Fujo Shit</a>
+        </div>
+        <div class="display" id="biblicalyaoi">
+            <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/63718319_AEoyseUWrAgTHPz.png">
+            <a class="descript">(4/14/2023) Biblical Yaoi</a>
+        </div>
+        <div class="display" id="gabeitchawesome">
+            <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/64542866_lj3SgvzUbrdXxeQ.png?1683105072">
+            <a class="descript">(2/24/2023) Early 30s Burned Out Chainsmoker Shoegaze Catboy</a>
+        </div>
+        <div class="display" id="fihas">
+            <img src="static/img/artwork/fihas.jpg">
+            <a class="descript">(9/4/2022) American Sunday</a>
+        </div>
+        <div class="display" id="whiteboysummer2">
+            <img src="static\img\artwork\whiteboysummerisliterallygoingtohavenosurvivors2.png">
+            <a class="descript">(7/23/2022) White Boy Summer Is Literally Going To Have No Survivors 2</a>
+        </div>
+        <div class="display" id="bigfin">
+            <img src="static\img\artwork\bigfin.png">
+            <a class="descript">(5/31/2022) Bigfin Squid Girl Indulgence</a>
+        </div>
+        <div class="display" id="girlsbeinggirls">
+            <img src="static\img\artwork\girlsbeinggirls.jpg">
+            <a class="descript">(4/22/2022) Girls Being Girls</a>
+        </div>
+        <div class="display" id="luciensnogoodverybadday">
+            <img src="static\img\artwork\luciensnogoodverybadday.jpeg">
+            <a class="descript">(4/22/2022) Lucien's No Good Very Bad Day</a>
+        </div>
+        <div class="display" id="mementingabsolutemori">
+            <img src="static\img\artwork\mementingabsolutemori.jpeg">
+            <a class="descript">(4/22/2022) It's Mementing Absolute Mori</a>
+        </div>
+        <div class="display" id="endplayingpool">
+            <img src="static\img\artwork\endplayingpool.jpeg">
+            <a class="descript">(3/21/2022) I've Never Played Pool In My Life But I Drew My Character Playing It Because I Thought It Would Be Cool</a>
+        </div>
+        <div class="display" id="15benadryl">
+            <img src="static\img\artwork\15benadryl.png">
+            <a class="descript">(3/16/2022) 15 Benadryl</a>
+        </div>
+        <div class="display" id="frendrealness">
+            <img src="static\img\artwork\frendrealness.jpeg">
+            <a class="descript">(2/25/2022) CROSS LEGS GAY GAY GAYTHESE MEN GOT FEMININE HIPS SOMEBODY STOP THEM!!</a>
+        </div>
+        <div class="display" id="anny">
+            <img src="static\img\artwork\anny.jpeg">
+            <a class="descript">(2/17/2022) Girls Being Girls v0</a>
+        </div>
+        <div class="display" id="bluntensmoken">
+            <img src="static\img\artwork\bluntensmoken.jpeg">
+            <a class="descript">(2/11/2022) O MEIN GOTT! THIS CAVE IS FULL OF BLUNTENSMOKEN</a>
+        </div>
+        <div class="display" id="elizabethlamb">
+            <img src="static\img\artwork\elizabethlamb.png">
+            <a class="descript">(1/28/2022) Top Ten Most Epic 11 Year Old Child Moments</a>
+        </div>
+        <div class="display" id="yayalice">
+            <img src="static\img\artwork\yayalice.png">
+            <a class="descript">(12/19/2021) Dirty Business</a>
+        </div>
+        <div class="display" id="choco2">
+            <img src="static\img\artwork\choco2.jpeg">
+            <a class="descript">(10/31/2021) Weeb NEET</a>
+        </div>
+        <div class="display" id="choco1">
+            <img src="static\img\artwork\choco1.png">
+            <a class="descript">(10/31/2021) Who Will YOU Pray To?</a>
+        </div>
+        <div class="display" id="mercy">
+            <img src="static\img\artwork\mercy.jpeg">
+            <a class="descript">(10/18/2021) Mercy</a>
+        </div>
+        <div class="display" id="whiteboysummerisliterallygoingtohavenosurvivors">
+            <img src="static\img\artwork\whiteboysummerisliterallygoingtohavenosurvivors.jpeg">
+            <a class="descript">(9/27/2021) White Boy Summer Is Literally Going To Have No Survivors</a>
+        </div>
+        <div class="display" id="kannatrailcamfootage">
+            <img src="static\img\artwork\kannatrailcamfootage.jpeg">
+            <a class="descript">(8/15/2021) No Facebook No Instagram No Twitch.tv No Only Fans If You Want To See Her That Bad Check The Trailcam Footage In Your Local woods</a>
+        </div>
+        <div class="display" id="kyaaa">
+            <img src="static\img\artwork\kyaaa.png">
+            <a class="descript">(4/17/2021) Anime Fox Maid Purgatory</a>
+        </div>
+        <div class="display" id="thisfuckingthing">
+            <img src="static\img\artwork\thisfuckingthing.png">
+            <a class="descript">(1/8/2023) This fucking thing? By no means is it finished (his top hat and tailcoats are still required) but I wanted to get a picture of it before I left my home for another while. Will update when completed with better pictures.</a>
+        </div>
+    </div>
+
+    <!-- width:73vw; height:96vh; -->
+</div>

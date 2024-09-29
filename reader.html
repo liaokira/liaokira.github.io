@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FOXGLOVE TOWN</title>
+    <link rel = "icon" href ="static/img/swirly.gif" type = "image/x-icon">
+
+    <style>
+        :root{
+            --bg-color: white;
+            --text-color: black;
+            --other-color: gray;
+        }
+
+        body{
+            background-color: var(--bg-color);
+        }
+
+        #header{
+            position: fixed;
+            color:var(--text-color);
+            top:0px;
+            right:10px;
+            font-size:40px;
+            width:100px;
+        }
+
+        #settings{
+            z-index: 999;
+            background-color: var(--bg-color);
+            position:fixed;
+            right:10px;
+            top:50px;
+            display:grid;
+            width:150px;
+            border: solid black 2px;
+            border-color: var(--text-color);
+            padding:10px;
+            border-radius: 10px;
+
+        }
+
+        #settings > *{
+            padding:8px;
+            border-bottom:dotted black 2px;
+            color:var(--text-color);
+            border-bottom-color: var(--text-color);
+            font-size:22px;
+            &:last-child{
+                border-bottom:none;
+            }
+        }
+
+        #settings >*:hover{
+            cursor:pointer;
+        }
+
+        #chapter{
+            z-index: 999;
+            background-color: var(--bg-color);
+            position:fixed;
+            right:10px;
+            top:250px;
+            width:150px;
+            border: solid black 2px;
+            border-color: var(--text-color);
+            padding:10px;
+            border-radius: 10px;
+            max-height:300px;
+            overflow-y: scroll;
+
+        }
+
+        #chapterlist > *{
+            padding:8px;
+            color:var(--text-color);
+            border-bottom:dotted black 2px;
+            border-bottom-color: var(--text-color);
+            font-size:22px;
+            &:last-child{
+                border-bottom:none;
+            }
+        }
+
+        #progress {
+            position: fixed;
+            left:0px;
+            width: 12px;
+            height: 93%;
+            margin:20px;
+            background: var(--other-color);
+            }
+
+        #progressbar {
+            width: 12px;
+            height:0%;
+            background: var(--text-color);
+            }
+    
+        #textbody{
+            justify-content: center;
+            margin: 0 auto;
+            width:70%;
+            font-size: 20px;
+            color: var(--text-color);
+            
+        }
+
+        ::selection{
+            color:var(--other-color);
+            background:none;
+        }
+
+
+        .circle{
+            width:30px;
+            height:30px;
+            -moz-border-radius: 50px;
+            -webkit-border-radius: 50px;
+            border-radius: 50px;
+            border: 2px solid black;
+            border-color: var(--text-color);
+        }
+
+        #colors > *{
+            margin-left:2px;
+            margin-right:2px;
+        }
+
+        a{
+            color:var(--text-color);
+        }
+
+        #overlay{
+            position:fixed;
+            top:0px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            overflow-y: auto;
+            overflow-x: auto;
+            width:70%;
+            height:95%;
+            border-right: dotted 3px var(--other-color);
+            border-left: dotted 3px var(--other-color);
+            resize:horizontal;
+        }
+
+
+    </style>
+
+    <script>
+        window.onscroll = function() {myFunction()};
+
+        function init(){
+            changeFont('0');
+            hide('settings');
+            hide('chapter');
+            hide('overlay');
+        }
+
+
+        function myFunction() {
+        var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrolled = (winScroll / height) * 100;
+        document.getElementById("progressbar").style.height = scrolled + "%";
+        } 
+
+        function changeBackground(color, textcolor, third){
+            let root = document.documentElement;
+            root.style.setProperty('--bg-color', color);
+            root.style.setProperty('--text-color', textcolor);
+            root.style.setProperty('--other-color', third);
+        }
+
+        function changeFont(change){
+            var body = document.getElementById("textbody");
+            body.style.fontSize = (Number(window.getComputedStyle(body).fontSize.replace("px", '')) + Number(change)) + "px"
+            document.getElementById('fontsize').innerHTML = window.getComputedStyle(body).fontSize;
+        }
+
+        function hide(el) {
+            var x = document.getElementById(el);
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+            } 
+
+        function generateChapters(){
+            const chapters = document.getElementsByTagName("h2");
+            for (let i = 0; i < chapters.length; i++) {
+                
+                var inner = chapters[i].textContent || chapters[i].textContent || "";
+                chapters[i].id = inner;
+                var container = document.createElement('div');
+                var iDiv = document.createElement('a');
+                iDiv.innerHTML = inner;
+                iDiv.setAttribute('href', "#" + inner);
+                container.appendChild(iDiv);
+                document.getElementById('chapterlist').appendChild(container);
+            }
+        }
+
+    </script>
+</head>
+<body onload="init();">
+
+    <div id='header' style="display:grid; display:flex; justify-content:space-evenly;">
+        <div onclick="hide('settings');">
+            ⚙ 
+        </div>
+        <div onclick="hide('chapter');">
+            ≡
+        </div>
+    </div>
+
+    <div id="sidebar">
+        <div id="settings">
+                <div id = "colors" style="display:grid; display:flex; justify-content:center;">
+                    <div class="circle" style="background-color: white;" onclick="changeBackground('white', 'black', 'gray')">
+                    </div>
+                    <div class="circle" style="background-color: tan;" onclick="changeBackground('tan', 'black', 'rgb(136, 114, 85)')">
+                    </div>
+                    <div class="circle" style="background-color: gray;" onclick="changeBackground('gray', 'white', 'rgb(70, 70, 70)')">
+                    </div>
+                    <div class="circle" style="background-color: black;" onclick="changeBackground('black', 'white', 'gray')">
+                    </div>
+                </div>
+
+                <div id="font" style="display:grid; display:flex; justify-content:space-evenly;">
+                    <div id="less" onclick="changeFont(-2)">
+                        - 
+                    </div> 
+                    <div id="fontsize">
+                    </div> 
+                    <div id="more" onclick="changeFont(2)">
+                        +
+                    </div>
+                </div>
+
+                <div id="toggle" style="display:grid; justify-content:center;">
+                    <div>
+                        <input type="checkbox" onclick="hide('progress');" checked>
+                        Progress
+                    </div>
+                    <div>
+                        <input type="checkbox" onclick="hide('overlay');" unchecked>
+                        Resize
+                    </div>
+
+                </div>
+            </div>
+
+        <div id="chapter">
+            <div id="chapterlist">
+            </div>
+        </div>
+
+    </div>
+
+    
+
+    <div id="progress">
+        <div id="progressbar">
+        </div>
+    </div>
+
+    <form action="">
+        <input type="file" name="pic" accept="html" id="htmlFile">
+      </form>
+    <div id="overlay">
+    </div>
+    <div id="textbody" style="overflow-y:hidden; overflow-y: hidden;">
+        
+        </div>
+
+    
+
+<script>
+
+
+        document.getElementById("overlay").addEventListener("click", function() {
+            document.getElementById("textbody").style.width = document.getElementById('overlay').style.width;
+        });
+
+        function readSingleFile(evt) {
+  //Retrieve the first (and only!) File from the FileList object
+  var f = evt.target.files[0]; 
+
+  if (f) {
+    var r = new FileReader();
+    r.onload = function(e) { 
+      var contents = e.target.result;
+    //   alert( "Got the file.n" 
+    //         +"name: " + f.name + "n"
+    //         +"type: " + f.type + "n"
+    //         +"size: " + f.size + " bytesn"
+    //         + "contents:" + contents
+    //        );  
+    document.getElementById('textbody').innerHTML= contents
+    generateChapters();
+    }
+    r.readAsText(f);
+  } else { 
+    alert("Failed to load file");
+  }
+}
+
+document.getElementById('htmlFile').addEventListener('change', readSingleFile, false);
+
+</script>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "icon" href ="static/img/swirly.gif" type = "image/x-icon">
+    <title>IN YOUR COMPUTER</title>
+
+    <!--Not even kidding this is the most fucking hellish CSS I've ever done. -->
+
+    <style>
+        @keyframes blink {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .cursor::after {
+            content: "|";
+            font-size: 1em;
+            font-weight: bold;
+            animation: blink infinite 0.7s;
+        }
+
+        .icon:hover {
+            cursor: pointer;
+        }
+
+    body{
+        background-image: url(static/img/windowswallpaper.jpg);
+        background-size:cover;
+        margin: 0 auto;
+        width: 800px;
+        padding-top: 15px;
+        overflow-x:hidden;
+        overflow-y:hidden;
+   }
+
+   b{
+   color: #1fde2e;
+   font-weight: bolder;
+   }
+
+   #mydiv {
+  position: absolute;
+  text-align: center;
+  border: 1px solid white;
+  left:760px;
+  top:45px;
+  background-image: -webkit-gradient(
+  linear, left top, right bottom, from(rgba(225,225,225,0.3)),
+  to(rgba(225,225,225,0.5)), color-stop(.9,#333333)
+    );
+    border-radius:10px;
+    box-shadow: 0px 0px 5px 1px #000000;
+    z-index:1;
+}
+
+#mydiv:hover {
+    z-index:10;
+}
+
+#mydiv2:hover {
+    z-index:10;
+}
+
+#mydiv3:hover {
+    z-index:10;
+}
+
+#mydiv4:hover {
+    z-index:10;
+}
+
+
+#mydivheader {
+  cursor: move;
+  color: #fff;
+  z-index:0;
+}
+
+   #mydiv2 {
+  position: absolute;
+  text-align: center;
+  border: 1px solid white;
+  background-image: -webkit-gradient(
+  linear, left top, right bottom, from(rgba(225,225,225,0.3)),
+  to(rgba(225,225,225,0.5)), color-stop(.9,#333333)
+);
+border-radius:10px;
+box-shadow: 0px 0px 5px 1px #000000;
+z-index:0;
+left: 300px;
+top:15px;
+}
+
+@font-face{
+    font-family: MS Gothic;
+    src: url("static/MSGOTHIC.TTF")
+}
+
+#mydiv2header {
+  cursor: move;
+  color: #fff;
+  z-index:0;
+}
+
+   #mydiv3 {
+  position: absolute;
+  text-align: center;
+  border: 1px solid white;
+  background-image: -webkit-gradient(
+  linear, left top, right bottom, from(rgba(225,225,225,0.3)),
+  to(rgba(225,225,225,0.5)), color-stop(.9,#333333)
+);
+border-radius:10px;
+box-shadow: 0px 0px 5px 1px #000000;
+z-index:0;
+  left:760px;
+  top: 240px;
+}
+
+#mydiv3header {
+  cursor: move;
+  color: #fff;
+  z-index:0;
+}
+
+   #mydiv4 {
+  position: absolute;
+  text-align: center;
+  border: 1px solid white;
+  background-image: -webkit-gradient(
+  linear, left top, right bottom, from(rgba(225,225,225,0.3)),
+  to(rgba(225,225,225,0.5)), color-stop(.9,#333333)
+);
+border-radius:10px;
+box-shadow: 0px 0px 5px 1px #000000;
+z-index:0;
+  left:490px;
+  top: 405px;
+}
+
+#mydiv4header {
+  cursor: move;
+  color: #fff;
+  z-index:0;
+}
+
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function (event) {
+            // array with texts to type in typewriter
+            var dataText = ["You found the about me page. Congratulations.",
+                            "By the way, I like chattering. Strike up a conversation if you so desire.",
+                            "If anything here piques your interest, throw it at me.",
+                            "To be honest I just wanted to include a typewriter function, so here it is.",
+                            "And you don't seem to understaaand... A shame you seemed an honest maaan...",
+                            "I am balling. I am faded.",
+                            ];
+
+            // type one text in the typwriter
+            // keeps calling itself until the text is finished
+            function typeWriter(text, i, fnCallback) {
+                // chekc if text isn't finished yet
+                if (i < (text.length)) {
+                    // add next character to h1
+                    document.querySelector("#tw").innerHTML = "C:\\Users\\YOU>" + text.substring(0, i + 1) + '<span aria-hidden="true"></span>';
+
+                    // wait for a while and call this function again for next character
+                    setTimeout(function () {
+                        typeWriter(text, i + 1, fnCallback)
+                    }, 100);
+                }
+                // text finished, call callback if there is a callback function
+                else if (typeof fnCallback == 'function') {
+                    // call callback after timeout
+                    setTimeout(fnCallback, 2500);
+                }
+            }
+
+            // start a typewriter animation for a text in the dataText array
+            function StartTextAnimation(i) {
+                if (typeof dataText[i] == 'undefined') {
+                    setTimeout(function () {
+                        StartTextAnimation(0);
+                    }, 20000);
+                }
+                // check if dataText[i] exists
+                if (i < dataText[i].length) {
+                    // text exists! start typewriter animation
+                    typeWriter(dataText[i], 0, function () {
+                        // after callback (and whole text has been animated), start next text
+                        StartTextAnimation((i + 1) % dataText.length);
+                    });
+                }
+
+            }
+
+            // start the text animation
+            StartTextAnimation(0);
+        });
+    </script>
+
+
+</head>
+
+<body>
+
+<div id="mydiv">
+    <div id="mydivheader" style="display: grid; grid-template-columns: 82% 18%;" >
+        <div id="left" style="margin-right: 5px; padding:5px; text-align:left; font-family: MS Gothic; line-height: 1.5; font-size:13px;">Terminal</div>
+        <div id="right" style="border: 1px solid black; font-weight:bolder; border-radius:2px; margin-right: 5px; background-image: linear-gradient(#f8afaf , #9F0E0E); text-align:center; font-family: MS UI Gothic; padding:5px;">
+            X
+        </div>
+    </div>
+    <div class = "box" style="padding:20px; background-color: black; margin: 5px; width: 250px; height: 100px; font-family: MS Gothic; line-height: 1.5; font-size: 14px; text-align: left;">
+        <p id="tw" class="cursor" style="color: #00ff14;">A</p>
+    </div>
+</div>
+
+
+<div id="mydiv2">
+    <div id="mydiv2header" style="display: grid; grid-template-columns: 82% 18%;" >
+        <div id="left" style="margin-right: 5px; padding:5px; text-align:left; font-family: MS Gothic; line-height: 1.5; font-size:13px;">All About Me...</div>
+        <div id="right" style="border: 1px solid black; font-weight:bolder; border-radius:2px; margin-right: 5px; background-image: linear-gradient(#f8afaf , #9F0E0E); text-align:center; font-family: MS UI Gothic; padding:5px;">
+            X
+        </div>
+    </div>
+    <div class = "box scroll" style="overflow-x: hidden; overflow-y: auto; padding:20px; background-color:white; margin: 5px; width: 400px; height:300px; font-family: MS UI Gothic; letter-spacing: 1px; font-size: 12px; text-align:left;">
+        <a style=" font-size:20px; color:blue; font-weight:bolder">Uh...Who am I?</a>
+        <hr />
+        <p>My name is <b>Dizzy</b>. I am <b>19</b> years old [7/27/2004].</p>
+        <p>My <b>current emotion</b>: <a href="https://www.imood.com/users/4disease"><img src="https://moods.imood.com/display/uname-4disease/trans-1/imood.gif" border="0" style="height:15px; padding-top:-5px; "></a></p>
+
+        <p>I'm an entity running on your computer. Every interaction you have with me is based on countless years of AI research.
+        </p>
+
+        <p>My personality types are <b>4w3</b> and <b>ENFP</b> I suppose.</p>
+        <div style="text-align:center; margin:20px;">
+            <img src="https://64.media.tumblr.com/36a391153d13e9f99c43e577a36b6d43/f69e70f58a431454-07/s75x75_c1/47ae26974ece8a79bf5744952749f796021b4d91.gifv"/>
+        </div>
+
+        <p>I am located in many <b>places</b>...</p>
+        <a href="https://www.instagram.com/4disease/" >Instagram</a>
+        <a href="https://twitter.com/4disease/" >Twitter</a>
+        <a href="https://4disease.tumblr.com/" >Tumblr</a> <br/><br/>
+
+        <a> </a><br/><br/>
+
+        <a style=" font-size:20px; color:blue; font-weight:bolder">Purpose</a>
+        <hr/><br/>
+
+        <a>
+            And, you may be wondering, what's the point of this whole website? The answer is more pretentious than you may think. </br></br>
+
+            Yeah, sure, I want to learn HTML/CSS/JavaScript, and it is giving me a fair bit of practice, but I'm also sort of obsessed with documenting my life. </br></br>
+
+            You know how random, seemingly mundane notes from friends can put a smile on your face? Or, how you look back at that one particularly humorous drawing from third grade? I want to have a place to store those special things, unrestricted by character limit or... whatever shitty algorithm tech giants love to implement.</br></br>
+
+            We do live in a wonderful digital age. Kids are creating webpages instead of keeping diaries, data unleashed into a boundless void, artifacts that don't decay with time. There's something promising about pretty spectacles that don't mold.</br></br>
+
+            And so, Dizzy's Webspace will grow, and maybe, years down the line, I'll have a garden to the buried in. Hell, that's a little morbid. I'm just a loser online.
+        </a><br/>
+
+        <img style="margin-top: 20px; height:180px;" src="https://64.media.tumblr.com/196730ab210e3dbb5e30f96418b39f35/tumblr_nhvtiaUF1W1u7nk6xo1_r1_500.png"/>
+
+    </div>
+</div>
+
+<div id="mydiv3">
+    <div id="mydiv3header" style="display: grid; grid-template-columns: 82% 18%;" >
+        <div id="left" style="margin-right: 5px; padding:5px; text-align:left; font-family: MS Gothic; line-height: 1.5; font-size:13px;">Interests!</div>
+        <div id="right" style="border: 1px solid black; font-weight:bolder; border-radius:2px; margin-right: 5px; background-image: linear-gradient(#f8afaf , #9F0E0E); text-align:center; font-family: MS UI Gothic; padding:5px;">
+            X
+        </div>
+    </div>
+    <div class = "box scroll" style="overflow-x: hidden; overflow-y: auto; display: grid; grid-template-columns: 27% 73%; padding:20px; background-color: white; margin: 5px; width: 400px; height: 400px;  font-family: MS UI Gothic; letter-spacing: 1px; font-size: 12px; text-align: left;">
+        <div id="left">
+            <img src="static/img/mayurabanner.jpg" style="width:90px;"/>
+        </div>
+        <div id="right">
+            <a style=" font-size:20px; color:blue; font-weight:bolder">Things that bring me joy</a>
+            <hr/>
+            <p style="color: black;">My main thing is <b>doing art</b> and putting it on the world wide web. You can view it on my Instagram, Twitter, and the art gallery on the left.<br/><br/>
+                Also, I am horrifically deep into worldbuilding with my characters. Talk to me about them if you want. I will reveal horrors beyond your imagination.<br/><br/>
+
+                <b>CODING! :</b> Especially web and game design. My dream job is to be a Game Developer, although as long as I can continue making my content, I am happy. The more mathematical aspects of coding deserve a spotlight too.<br/><br/>
+
+                <b>Anime/Manga :</b> I'm a big fan of Devilman, Serial Experiments Lain, Durarara, and Hypmic (I'm allowed to have shit taste, only sometimes.) I also like psychological horrors like Oyasumi Punpun, Monster, and Flowers of Evil.<br/><br/>
+
+                <b>Games :</b> I tend to like older games, especially RPGs, like Yume Nikki, OFF, and Ib. I am currently playing Silent Hill 2, Hylics, and Pathologic HD.<br/><br/>
+
+                <b>Music :</b> I am partial to breakcore, drum and bass, vocaloid, rock, jazz, nearly anything, really. I like artists like Machine Girl, Interpol, and She Wants Revenge, Black Dresses/Devi Mcallion/Ada Rook, Goreshit, Will Wood, and The Hush Sound. Small note that I don't support all of these artists.<br/><br/>
+
+                <b>Misc :</b> Collecting old web artifacts is one of my favorite pastimes. I like Ukagaka, geocities web design, early 2000s anime images. I also like ARGs and lost media (preferably ominous and rabbit hole-esque. If you want to subject me to Eldrich Horrors, I better be immersed.) If you find any cool and/or weird websites feel free to send them my way.<br/><br/>
+
+                <b>Other random bits and bobs...</b>
+                <ul>
+                    <li>Radioactive and hazardous substances</li>
+                    <li>Foods that combine sweet and salty flavors</li>
+                    <li>Tchotchkes and bric-à-bracs</li>
+                    <li>Early computer graphics </li>
+                    <li>Victorian-era interior design </li>
+                    <li>Church design and faith in general</li>
+                    <li>Weird fucking lawless experiments done in the 1950s-70s </li>
+
+                </ul>
+
+        </div>
+    </div>
+</div>
+
+<div id="mydiv4">
+    <div id="mydiv4header" style="display: grid; grid-template-columns: 82% 18%;" >
+        <div id="left" style="margin-right: 5px; padding:5px; text-align:left; font-family: MS Gothic; line-height: 1.5; font-size:13px;">Media Player</div>
+        <div id="right" style="border: 1px solid black; font-weight:bolder; border-radius:2px; margin-right: 5px; background-image: linear-gradient(#f8afaf , #9F0E0E); text-align:center; font-family: MS UI Gothic; padding:5px;">
+            X
+        </div>
+    </div>
+    <div class = "box" style="overflow-x: hidden; overflow-y: hidden; margin:5px; background-color: white; width: 250px; height: 150px;  font-family: MS UI Gothic; letter-spacing: 1px; font-size: 12px; text-align: left;">
+        <img style="height:150px; width: 250px;" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F66.media.tumblr.com%2F1bcec9726580d480209375113f6330f2%2Ftumblr_inline_p7amv6YVv91szd0uo_540.gifv&f=1&nofb=1" />
+    </div>
+    <div>
+        <div style="color: white; margin-right: 5px; padding:5px; font-family: MS Gothic; line-height: 1; font-size:13px;">Machine Girl - Crystalline Chute</div>
+        <img width="50" height="50" src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-media-seek-backward-icon.png">
+        <style>.playerbutton{cursor:pointer;border:none;background:transparent;outline:none;display:inline}.gaf210codes_youtubebox,.preload_box{width:1px;height:1px;overflow:hidden;position:absolute;display:inline}</style>
+        <script src="https://www.youtube.com/player_api"></script>
+        <script>function toggleButtonPlayer_k62X4(buttonobj){buttonobj.style.display="none";if(buttonobj.id=="gaf210codes-k62X4-playbutton"){document.getElementById("gaf210codes-k62X4-pausebutton").style.display="inline"}else{document.getElementById("gaf210codes-k62X4-playbutton").style.display="inline"}}/*Youtube player code made @ https://gafcodes.com */</script>
+        <div class="gaf210codes_youtubebox"><iframe id="gaf210codes_k62X4_frame" allow="autoplay" width="50" height="50" src="https://www.youtube.com/embed/HWAkqwzGBsA?enablejsapi=1&amp;fs=0&amp;rel=0&amp;showinfo=0&amp;modestbranding=1&amp;iv_load_policy=3&amp;controls=0&amp;autoplay=0&amp;loop=0"></iframe></div>
+        <button type="button" class="playerbutton" id="gaf210codes-k62X4-playbutton"><img style="width:50px; height:50px;" src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-media-playback-start-icon.png"></button><button type="button" class="playerbutton" id="gaf210codes-k62X4-pausebutton" style="display:none"><img style="width:50px; height:50px;" src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-media-playback-pause-icon.png"></button><div class="preload_box"><img src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-media-playback-start-icon.png"><img src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-media-playback-pause-icon.png"></div><script src="https://code.jquery.com/jquery.min.js"></script><script>$("#gaf210codes_k62X4_frame").on("load",function(){gaf210codes_k62X4=new YT.Player(this,{events:{'onStateChange':function(event){if(event.data==1){toggleButtonPlayer_k62X4(document.getElementById('gaf210codes-k62X4-playbutton'))}}}})});$("#gaf210codes-k62X4-playbutton").click(function(){gaf210codes_k62X4.playVideo();toggleButtonPlayer_k62X4(document.getElementById("gaf210codes-k62X4-playbutton"))});$("#gaf210codes-k62X4-pausebutton").click(function(){gaf210codes_k62X4.pauseVideo();toggleButtonPlayer_k62X4(document.getElementById("gaf210codes-k62X4-pausebutton"))});</script>
+    <img width="50" height="50" src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/256/Actions-media-seek-forward-icon.png">
+    </div>
+
+</div>
+
+<div style="text-align: center; position:fixed; left: 30px; top: 20px;">
+<img class="icon" draggable="false" src="static/img/computer.png" style="width:60px; height:60px;" onclick="window.location.href='index.html';"></br>
+    <a style="font-family: MS Gothic; line-height: 1.5; font-size:13px; color: white;">Home</a>
+</div>
+
+<div style="text-align: center; position:fixed; left: 30px; top: 120px;">
+    <img class="icon" draggable="false" src="static/img/trash.png" style="width:60px; height:60px;" onclick="window.location.href='diary.html';"></br>
+    <a style="font-family: MS Gothic; line-height: 1.5; font-size:13px; color: white;">Diary</a>
+</div>
+
+<div style="text-align: center; position:fixed; left: 30px; top: 220px;">
+    <img  class="icon" draggable="false" src="https://icons.iconarchive.com/icons/wwalczyszyn/ilive/256/Windows-Live-Gallery-icon.png" style="width:60px; height:60px;" onclick="window.location.href='gallery.html';"></br>
+    <a style="font-family: MS Gothic; line-height: 1.5; font-size:13px; color: white;">Art</a>
+</div>
+
+<div style="text-align: center; position:fixed; left: 30px; top: 320px;">
+    <img class="icon" draggable="false" src="static/img/cd.png" style="width:60px; height:60px;" onclick="window.location.href='music.html';"></br>
+    <a style="font-family: MS Gothic; line-height: 1.5; font-size:13px; color: white;">Music</a>
+</div>
+
+<img src="static/img/mayu.png" draggable="false" style="position:fixed;bottom:0px;right:0px;z-index:999; width:400px;">
+
+</body>
+
+<script>
+//Make the DIV element draggable:
+
+dragElement(document.getElementById("mydiv2"));
+dragElement(document.getElementById("mydiv"));
+dragElement(document.getElementById("mydiv3"));
+dragElement(document.getElementById("mydiv4"));
+
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
+</script>
+
